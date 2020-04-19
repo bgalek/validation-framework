@@ -27,6 +27,9 @@ jobs:
       - name: jacocoTestReport
         run: ./gradlew jacocoTestReport
       - name: sonarcube
-        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.projectKey=bgalek_validationframework -Dsonar.organization=bgalek-github -Dsonar.host.url=https://sonarcloud.io
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}Z
+        run: ./gradlew sonarqube -Dsonar.login=$SONAR_TOKEN -Dsonar.projectKey=bgalek_validationframework -Dsonar.organization=bgalek-github -Dsonar.host.url=https://sonarcloud.io
       - name: codecov
         run: bash <(curl -s https://codecov.io/bash)

@@ -17,6 +17,13 @@ Add library dependency:
 compile "com.github.bgalek.utils:validationframework:1.0.0"
 ```
 
+Let's assume a very simple class to validate:
+```java
+public class MovieCharacter {
+    public final String value;
+}
+```
+
 Use provided implementations:
 
 ### DefaultValidator
@@ -26,7 +33,7 @@ Will return a `PositiveValidationResult` only when all validations are successfu
 ```java
 Validator<MovieCharacter> characterValidator = Validator.of(MovieCharacter.class)
         .validation(character -> character.value.length() > 0, "name needs to has to be at least 1 character long")
-        .validation(character -> Character.isUpperCase(character.value.charAt(0)), "name needs to start with uppercase letter")
+        .validation(character -> character.isUpperCase(character.value.charAt(0)), "name needs to start with uppercase letter")
         .validation(character -> character.value.length() < 50, "name needs to has to be shorter than 50 characters")
         .ensure();
 ```
@@ -38,7 +45,7 @@ Will return a `PositiveValidationResult` only when all validations are successfu
 ```java
 Validator<MovieCharacter> characterValidator = Validator.of(MovieCharacter.class)
         .validation(character -> character.value.length() > 0, "name needs to has to be at least 1 character long")
-        .validation(character -> Character.isUpperCase(character.value.charAt(0)), "name needs to start with uppercase letter")
+        .validation(character -> character.isUpperCase(character.value.charAt(0)), "name needs to start with uppercase letter")
         .validation(character -> character.value.length() < 50, "name needs to has to be shorter than 50 characters")
         .ensure(IllegalArgumentException::new);
 ```

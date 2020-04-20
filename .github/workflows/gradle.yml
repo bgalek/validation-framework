@@ -29,7 +29,7 @@ jobs:
       - name: sonarcube
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}Z
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew sonarqube -Dsonar.login=$SONAR_TOKEN -Dsonar.projectKey=bgalek_validationframework -Dsonar.organization=bgalek-github -Dsonar.host.url=https://sonarcloud.io
       - name: codecov
         run: bash <(curl -s https://codecov.io/bash)

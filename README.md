@@ -32,9 +32,9 @@ Will return a `PositiveValidationResult` only when all validations are successfu
 
 ```java
 Validator<MovieCharacter> characterValidator = Validator.of(MovieCharacter.class)
-        .validation(character -> character.value.length() > 0, "name needs to has to be at least 1 character long")
-        .validation(character -> character.isUpperCase(character.value.charAt(0)), "name needs to start with uppercase letter")
-        .validation(character -> character.value.length() < 50, "name needs to has to be shorter than 50 characters")
+        .validation(movieStar -> movieStar.value.length() > 0, "name needs to has to be at least 1 character long")
+        .validation(movieStar -> Character.isUpperCase(movieStar.value.charAt(0)), "name needs to start with uppercase letter")
+        .validation(movieStar -> movieStar.value.length() < 50, "name needs to has to be shorter than 50 characters")
         .ensure();
 ```
 
@@ -44,9 +44,9 @@ Will return a `PositiveValidationResult` only when all validations are successfu
 
 ```java
 Validator<MovieCharacter> characterValidator = Validator.of(MovieCharacter.class)
-        .validation(character -> character.value.length() > 0, "name needs to has to be at least 1 character long")
-        .validation(character -> character.isUpperCase(character.value.charAt(0)), "name needs to start with uppercase letter")
-        .validation(character -> character.value.length() < 50, "name needs to has to be shorter than 50 characters")
+        .validation(movieStar -> movieStar.value.length() > 0, "name needs to has to be at least 1 character long")
+        .validation(movieStar -> Character.isUpperCase(movieStar.value.charAt(0)), "name needs to start with uppercase letter")
+        .validation(movieStar -> movieStar.value.length() < 50, "name needs to has to be shorter than 50 characters")
         .ensure(IllegalArgumentException::new);
 ```
 
@@ -56,9 +56,9 @@ Will return a `ValidationSummary` containing passed and failed validations.
 
 ```java
 SummaryValidator<MovieCharacter> characterValidator = Validator.of(MovieCharacter.class)
-        .validation(character -> character.value.startsWith("A"), "only names starting with A allowed")
-        .validation(character -> character.value.split(" ").length == 2, "has to contain name and surname")
-        .validation(character -> character.value.endsWith("Z"), "only names ending with Z allowed")
+        .validation(movieStar -> movieStar.value.startsWith("A"), "only names starting with A allowed")
+        .validation(movieStar -> movieStar.value.split(" ").length == 2, "has to contain name and surname")
+        .validation(movieStar -> movieStar.value.endsWith("Z"), "only names ending with Z allowed")
         .summary();
 ```
 
@@ -85,8 +85,8 @@ and use them like this:
 
 ```java
 Validator<MovieCharacter> customValidator = Validator.of(MovieCharacter.class, SystemOutValidator::new)
-        .validation(character -> character.value.length() > 0, "name needs to has to be at least 1 character long")
-        .validation(character -> character.value.length() < 50, "name needs to has to be shorter than 50 characters")
+        .validation(movieStar -> movieStar.value.length() > 0, "name needs to has to be at least 1 character long")
+        .validation(movieStar -> movieStar.value.length() < 50, "name needs to has to be shorter than 50 characters")
         .ensure();
 ```
 

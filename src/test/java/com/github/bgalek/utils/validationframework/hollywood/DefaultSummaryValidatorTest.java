@@ -12,8 +12,8 @@ import java.util.Set;
 import static java.util.stream.Collectors.toSet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("SummaryValidator")
-class SummaryValidatorTest {
+@DisplayName("DefaultSummaryValidator")
+class DefaultSummaryValidatorTest {
 
     @Test
     @DisplayName("should return validation summary")

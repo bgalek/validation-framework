@@ -3,7 +3,7 @@
 
 ![Build](https://github.com/bgalek/validation-framework/workflows/Java%20CI%20with%20Gradle/badge.svg)
 ![Codecov](https://img.shields.io/codecov/c/github/bgalek/validation-framework.svg?style=flat-square)
-![GitHub Release Date](https://img.shields.io/github/release-date/bgalek/validation-framework.svg?style=flat-square)
+![Maven Central](https://img.shields.io/maven-central/v/com.github.bgalek.utils/validation-framework)
 ![Scrutinizer code quality](https://img.shields.io/scrutinizer/g/bgalek/validation-framework.svg?style=flat-square)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bgalek_validationframework&metric=alert_status)](https://sonarcloud.io/dashboard?id=bgalek_validationframework)
 
@@ -14,7 +14,7 @@ This java library provides some easy and extensible interfaces to introduce cons
 ## Usage
 Add library dependency:
 ```groovy
-compile "com.github.bgalek.utils:validationframework:1.0.0"
+compile "com.github.bgalek.utils:validation-framework:1.0.0"
 ```
 
 Let's assume a very simple class to validate:
